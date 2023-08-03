@@ -29,8 +29,6 @@ const crearNuevaLinea = (nombre, email) => {
 
 const table = document.querySelector("[data-table]");
 
-const http = new XMLHttpRequest();
-
 /* abrir http (metodo, url ) */
 
 /* ----CRUD--- 
@@ -46,21 +44,47 @@ GET
 PUT / PATCH
 DELETE
 */
-http.open("GET","http://localhost:3000/perfil");
-http.send();
 
-/* para que nos de respueesta */
-http.onload = () => {
-    const data = JSON.parse(http.response);
-    console.log(data);
-    data.forEach((perfil) => {
-        const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
-        table.appendChild(nuevaLinea);
-    });
-   /*  const hht */
-};
+const listaClientes = () => {
+  const promise = new Promise( (resolve,reject) =>
+  {
+    const http = new XMLHttpRequest();
+    http.open("GET","http://localhost:3000/perfil");
+    
+    http.send();
+    
+    /* para que nos de respuesta */
+    http.onload = () => {
+        const response = JSON.parse(http.response);
+        if(http.status>= 400){
+          reject(response);
+        }else{
+          resolve(response);
+        }
+    };
+  });
+  return promise;
+}
+
+listaClientes().then((data) => {
+  data.forEach((perfil) => {
+    const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
+    table.appendChild(nuevaLinea);
+  });
+}).catch((error)=>alert("ocurrio un error"));
 
 
+
+
+
+/* 
+    Muestra la fecha de hoy es solo muestra
+   const http2 = new XMLHttpRequest();
+   http2.open("GET","http://localhost:3000/perfil/hoy");
+   http2.send();
+   http2.onload = () => {
+    const data2 = JSON.parse(http2.response);
+   } */
 
 /* 
 visualiza las acciones 
