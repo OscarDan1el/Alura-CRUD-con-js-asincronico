@@ -4,7 +4,21 @@
       "nombre": "Harland Lohora",
       "email": "harland@alura.com",
       "id": 1
+    },
+    {
+      "nombre": "pedro",
+      "email": "leiva_2580@hotmail.com",
+      "id": "38c29081-df14-4d94-9630-3992c4687378"
+    },
+    {
+      "nombre": "EIRA",
+      "email": "leiva_2580@hotmail.com",
+      "id": "db623c09-c0f9-4fde-8474-9e6bff0fdeb8"
+    },
+    {
+      "nombre": "EIRA",
+      "email": "leiva_2580@hotmail.com",
+      "id": "72b6f2eb-5ca8-46c9-9153-231a6c632943"
     }
-    
   ]
 }
