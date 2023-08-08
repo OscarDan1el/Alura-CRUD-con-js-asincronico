@@ -11,7 +11,7 @@ const crearNuevaLinea = (nombre, email, id) => {
                <ul class="table__button-control">
                  <li>
                    <a
-                     href="../screens/editar_cliente.html"
+                     href="../screens/editar_cliente.html?id=${id}"
                      class="simple-button simple-button--edit"
                      >Editar</a
                    >
@@ -48,7 +48,7 @@ const crearNuevaLinea = (nombre, email, id) => {
   }).catch((error)=>alert("ocurrio un error")); */
 
 
-  /* refcatorizando el codigo */
+  /* refactorizando el codigo */
   clientServices
   .listaClientes()
   .then((data) => {

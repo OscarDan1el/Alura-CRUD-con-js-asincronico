@@ -25,10 +25,19 @@ const eliminarCliente = (id) => {
   });
 }
 
+/* funcion detalle cliente */
+/* como estamos solicitando la informacion no necesitamos especificarle 
+el metodo, ya que viene por defecto */
+const detalleCliente = (id) =>{
+  return fetch(`http://localhost:3000/perfil/${id}`)
+  .then(respuesta => respuesta.json())
+}
+
 /* exportar  */
 export const clientServices ={
 listaClientes,
 crearCliente,
 eliminarCliente,
+detalleCliente,
 };
 
