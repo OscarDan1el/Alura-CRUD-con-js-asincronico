@@ -30,7 +30,20 @@ const eliminarCliente = (id) => {
 el metodo, ya que viene por defecto */
 const detalleCliente = (id) =>{
   return fetch(`http://localhost:3000/perfil/${id}`)
-  .then(respuesta => respuesta.json())
+  .then(respuesta => respuesta.json()
+  );
+};
+
+const actualizarCliente = (nombre, email, id) => {
+  return fetch(`http://localhost:3000/perfil/${id}`,{
+    method:"PUT",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify({ nombre, email }),
+  })
+  .then((respuesta) => respuesta)
+  .catch((err)=>console.log(err));
 }
 
 /* exportar  */
@@ -39,5 +52,6 @@ listaClientes,
 crearCliente,
 eliminarCliente,
 detalleCliente,
+actualizarCliente
 };
 
